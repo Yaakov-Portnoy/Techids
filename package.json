@@ -1,0 +1,9 @@
+{
+  "name": "techids",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "dev": "set CHOKIDAR_USEPOLLING=true&& vite --open", "build": "vite build", "preview": "vite preview", "server": "npm --prefix server run dev", "server:start": "npm --prefix server start" },
+  "dependencies": { "react": "^18.3.1", "react-dom": "^18.3.1", "react-router-dom": "^6.30.1" },
+  "devDependencies": { "@vitejs/plugin-react": "^4.3.4", "vite": "^5.4.19" }
+}
