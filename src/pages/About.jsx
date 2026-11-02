@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   PageShell,
   SectionLabel,
   PrimaryButton,
   SecondaryButton,
-  ArrowLink,
 } from "./PageParts";
 
 function About() {
@@ -19,9 +17,8 @@ function About() {
           <span>something you do.</span>
         </h1>
         <p>
-          Techids is a student-led nonprofit STEM education organization
-          designed to make science, technology, engineering, and mathematics
-          accessible, engaging, and hands-on for children.
+          Techids is a student-led nonprofit making STEM hands-on and
+          accessible for kids.
         </p>
       </section>
 
@@ -38,18 +35,14 @@ function About() {
             <span>for students.</span>
           </h2>
           <p>
-            Techids was created around a simple idea: STEM becomes more
-            exciting when students get to experience it for themselves.
+            STEM is more exciting when you get to experience it yourself.
+            Our student leaders build workshops, projects, and lessons that
+            encourage younger students to ask questions and build things of
+            their own.
           </p>
           <p>
-            Our student leaders develop workshops, projects, lessons, and
-            educational experiences that encourage younger students to ask
-            questions and try building things of their own.
-          </p>
-          <p>
-            We are working to grow from local hands-on programs into a broader
-            STEM-learning network serving schools, community organizations,
-            families, and individual students.
+            We're growing from local hands-on programs into a broader
+            STEM-learning network for schools, families, and students.
           </p>
         </div>
       </section>
@@ -70,10 +63,7 @@ function About() {
               <span>01</span>
               <div>
                 <h3>Hands-on first</h3>
-                <p>
-                  Students should have opportunities to experiment, build, and
-                  learn through doing.
-                </p>
+                <p>Students learn best by experimenting and building.</p>
               </div>
             </article>
 
@@ -81,10 +71,7 @@ function About() {
               <span>02</span>
               <div>
                 <h3>Accessible STEM</h3>
-                <p>
-                  STEM should feel welcoming and understandable, not distant
-                  or intimidating.
-                </p>
+                <p>STEM should feel welcoming, not intimidating.</p>
               </div>
             </article>
 
@@ -92,10 +79,7 @@ function About() {
               <span>03</span>
               <div>
                 <h3>Student leadership</h3>
-                <p>
-                  Students can create meaningful educational opportunities for
-                  other students.
-                </p>
+                <p>Students creating meaningful opportunities for students.</p>
               </div>
             </article>
 
@@ -103,10 +87,7 @@ function About() {
               <span>04</span>
               <div>
                 <h3>Keep improving</h3>
-                <p>
-                  Great engineering and great learning both come from testing,
-                  learning, and trying again.
-                </p>
+                <p>Great engineering and learning both come from trying again.</p>
               </div>
             </article>
           </div>
@@ -125,9 +106,8 @@ function About() {
           </div>
 
           <p>
-            Jacob and Asher are the student leaders doing the day-to-day work
-            of developing Techids. Our adult Board of Directors provides
-            governance, oversight, guidance, and supervision.
+            Jacob Portnoy and Asher Hoisman lead the day-to-day work of
+            building Techids.
           </p>
         </div>
 
@@ -140,8 +120,7 @@ function About() {
               <span className="team-role">STUDENT LEADER</span>
               <h3>Jacob Portnoy</h3>
               <p>
-                Helps lead Techids projects, website development, workshops,
-                and the organization's student-focused direction.
+                Leads Techids projects, website development, and workshops.
               </p>
             </div>
           </article>
@@ -152,67 +131,20 @@ function About() {
             </div>
             <div className="team-card-content">
               <span className="team-role">STUDENT LEADER</span>
-              <h3>Asher Heusman</h3>
+              <h3>Asher Hoisman</h3>
               <p>
-                Helps lead Techids programs and works with Jacob to develop
-                hands-on STEM experiences for younger students.
-              </p>
-            </div>
-          </article>
-
-          <article className="team-card team-adult">
-            <div className="team-photo">
-              <span>DH</span>
-            </div>
-            <div className="team-card-content">
-              <span className="team-role">ADULT BOARD</span>
-              <h3>Danny Hoisman</h3>
-              <p>
-                Serves as an adult member of Techids' Board of Directors.
-              </p>
-            </div>
-          </article>
-
-          <article className="team-card team-adult">
-            <div className="team-photo">
-              <span>DP</span>
-            </div>
-            <div className="team-card-content">
-              <span className="team-role">ADULT BOARD</span>
-              <h3>David Portnoy</h3>
-              <p>
-                Serves as an adult member of Techids' Board of Directors.
-              </p>
-            </div>
-          </article>
-
-          <article className="team-card team-adult">
-            <div className="team-photo">
-              <span>RH</span>
-            </div>
-            <div className="team-card-content">
-              <span className="team-role">ADULT BOARD</span>
-              <h3>Rachel Hoisman</h3>
-              <p>
-                Serves as an adult member of Techids' Board of Directors.
-              </p>
-            </div>
-          </article>
-
-          <article className="team-card team-advisor">
-            <div className="team-photo">
-              <span>SM</span>
-            </div>
-            <div className="team-card-content">
-              <span className="team-role">ADVISOR</span>
-              <h3>Sam Muttkadapa</h3>
-              <p>
-                Supports Techids with guidance as an advisor to the student
-                leadership.
+                Leads Techids programs and hands-on STEM experiences for
+                younger students.
               </p>
             </div>
           </article>
         </div>
+
+        <p className="about-oversight">
+          Techids operates under the oversight of parents and legal
+          guardians of legal age, and follows a formal set of bylaws that
+          govern how the organization is run.
+        </p>
       </section>
 
       <section className="about-purpose section">
@@ -227,11 +159,9 @@ function About() {
             to <span>build.</span>
           </h2>
           <p>
-            Techids, Inc. is organized for charitable and educational purposes,
-            including expanding access to engaging, hands-on STEM education,
-            programs, workshops, courses, mentoring, curriculum, projects,
-            equipment, resources, community outreach, partnerships, and related
-            educational opportunities.
+            Techids, Inc. is organized for charitable and educational
+            purposes: hands-on STEM programs, workshops, mentoring,
+            curriculum, equipment, and community partnerships.
           </p>
         </div>
       </section>

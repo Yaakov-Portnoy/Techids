@@ -16,6 +16,7 @@ export function Header() {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/workshops">Workshops</NavLink>
           <NavLink to="/lessons">Lessons</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 

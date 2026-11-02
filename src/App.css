@@ -735,8 +735,16 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
+  max-width: 760px;
+}
+
+.about-oversight {
+  margin-top: 36px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 760px;
 }
 
 .team-card {
