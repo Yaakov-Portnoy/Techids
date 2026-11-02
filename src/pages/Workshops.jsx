@@ -85,7 +85,7 @@ function Workshops() {
           </p>
 
           <div className="button-row">
-            <PrimaryButton to="/request">Request a Workshop →</PrimaryButton>
+            <PrimaryButton to="/contact#workshop">Request a Workshop →</PrimaryButton>
             <SecondaryButton to="#workshop-list">
               Explore Workshops
             </SecondaryButton>
@@ -149,7 +149,7 @@ function Workshops() {
                 <SectionLabel>{workshop.category}</SectionLabel>
                 <h3>{workshop.title}</h3>
                 <p>{workshop.description}</p>
-                <ArrowLink to="/contact">Ask about this workshop</ArrowLink>
+                <ArrowLink to="/contact#workshop">Ask about this workshop</ArrowLink>
               </div>
             </article>
           ))}
@@ -208,7 +208,7 @@ function Workshops() {
               We work with schools, teachers, and community organizations to
               bring hands-on STEM experiences directly to students.
             </p>
-            <PrimaryButton to="/request">Request a Workshop →</PrimaryButton>
+            <PrimaryButton to="/contact#workshop">Request a Workshop →</PrimaryButton>
           </div>
 
           <div className="school-card-visual">
@@ -267,7 +267,7 @@ function Workshops() {
           <span>hands-on.</span>
         </h2>
         <p>Tell us what you're looking for and we'll start the conversation.</p>
-          <Link to="/request" className="button button-white">
+          <Link to="/contact#workshop" className="button button-white">
           Request a Workshop →
         </Link>
       </section>
