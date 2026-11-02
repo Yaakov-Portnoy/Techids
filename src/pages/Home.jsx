@@ -139,7 +139,7 @@ function Home() {
                 Partnerships and outreach that help more students discover
                 opportunities in STEM.
               </p>
-              <ArrowLink to="/get-involved">Get involved</ArrowLink>
+              <ArrowLink to="/contact#involved">Get involved</ArrowLink>
             </div>
           </article>
         </div>
@@ -193,7 +193,7 @@ function Home() {
           way to get involved with Techids.
         </p>
         <div className="button-row center">
-          <PrimaryButton to="/get-involved">Get Involved →</PrimaryButton>
+          <PrimaryButton to="/contact#involved">Get Involved →</PrimaryButton>
           <SecondaryButton to="/contact">Contact Techids</SecondaryButton>
         </div>
       </section>

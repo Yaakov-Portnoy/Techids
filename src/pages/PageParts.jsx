@@ -17,11 +17,10 @@ export function Header() {
           <NavLink to="/workshops">Workshops</NavLink>
           <NavLink to="/lessons">Lessons</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="/get-involved">Get Involved</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
-        <Link to="/get-involved" className="header-cta">
+        <Link to="/contact#involved" className="header-cta">
           Get Involved <span>→</span>
         </Link>
       </div>
@@ -53,8 +52,8 @@ export function Footer() {
 
         <div className="footer-column">
           <h3>Get involved</h3>
-          <Link to="/get-involved">Get Involved</Link>
-          <Link to="/request">Request a Workshop</Link>
+          <Link to="/contact#involved">Get Involved</Link>
+          <Link to="/contact#workshop">Request a Workshop</Link>
           <Link to="/contact">Contact</Link>
         </div>
       </div>
