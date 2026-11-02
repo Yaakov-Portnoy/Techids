@@ -26,10 +26,7 @@ function Home() {
             They <span>build it.</span>
           </h1>
 
-          <p>
-            Techids makes science, technology, engineering, and mathematics
-            exciting, accessible, and hands-on for children.
-          </p>
+          <p>Hands-on STEM education, built and led by students.</p>
 
           <div className="button-row">
             <PrimaryButton to="/workshops">Explore Workshops →</PrimaryButton>
@@ -80,10 +77,9 @@ function Home() {
             <span>possible.</span>
           </h2>
           <p className="large-copy">
-            We believe children learn best when they can take an idea out of a
-            textbook and turn it into something real. Techids gives students
-            opportunities to build, experiment, ask questions, solve problems,
-            and discover what they can do.
+            Kids learn best by turning an idea into something real. Techids
+            gives them the chance to build, experiment, and discover what
+            they can do.
           </p>
         </div>
       </section>
@@ -100,10 +96,7 @@ function Home() {
               Discover.
             </h2>
           </div>
-          <p>
-            From workshops to educational resources, Techids creates practical
-            ways for students to experience STEM.
-          </p>
+          <p>Practical ways for students to experience STEM.</p>
         </div>
 
         <div className="program-grid">
@@ -111,10 +104,7 @@ function Home() {
             <span className="program-number">01</span>
             <div>
               <h3>Workshops</h3>
-              <p>
-                Hands-on STEM activities where students build and experiment
-                together.
-              </p>
+              <p>Students build and experiment together.</p>
               <ArrowLink to="/workshops">Explore workshops</ArrowLink>
             </div>
           </article>
@@ -123,10 +113,7 @@ function Home() {
             <span className="program-number">02</span>
             <div>
               <h3>Lessons</h3>
-              <p>
-                Accessible STEM lessons and projects designed to make concepts
-                easier to understand.
-              </p>
+              <p>STEM concepts explained in plain language.</p>
               <ArrowLink to="/lessons">Explore lessons</ArrowLink>
             </div>
           </article>
@@ -135,10 +122,7 @@ function Home() {
             <span className="program-number">03</span>
             <div>
               <h3>Community</h3>
-              <p>
-                Partnerships and outreach that help more students discover
-                opportunities in STEM.
-              </p>
+              <p>Partnerships that bring STEM to more students.</p>
               <ArrowLink to="/get-involved">Get involved</ArrowLink>
             </div>
           </article>
@@ -158,9 +142,8 @@ function Home() {
             <span>watch.</span>
           </h2>
           <p>
-            Students receive a challenge, make a plan, build a solution, test
-            it, and improve it. That process turns abstract STEM ideas into
-            something students can actually understand.
+            Students get a challenge, build a solution, test it, and improve
+            it — the same process real engineers use.
           </p>
           <PrimaryButton to="/workshops">See Our Workshops →</PrimaryButton>
         </div>
@@ -188,10 +171,7 @@ function Home() {
           <br />
           STEM <span>hands-on.</span>
         </h2>
-        <p>
-          Whether you're a student, teacher, school, or organization, there's a
-          way to get involved with Techids.
-        </p>
+        <p>Students, teachers, and schools — there's a way to get involved.</p>
         <div className="button-row center">
           <PrimaryButton to="/get-involved">Get Involved →</PrimaryButton>
           <SecondaryButton to="/contact">Contact Techids</SecondaryButton>
