@@ -123,7 +123,7 @@ function Home() {
             <div>
               <h3>Community</h3>
               <p>Partnerships that bring STEM to more students.</p>
-              <ArrowLink to="/get-involved">Get involved</ArrowLink>
+              <ArrowLink to="/contact#involved">Get involved</ArrowLink>
             </div>
           </article>
         </div>
@@ -173,7 +173,7 @@ function Home() {
         </h2>
         <p>Students, teachers, and schools — there's a way to get involved.</p>
         <div className="button-row center">
-          <PrimaryButton to="/get-involved">Get Involved →</PrimaryButton>
+          <PrimaryButton to="/contact#involved">Get Involved →</PrimaryButton>
           <SecondaryButton to="/contact">Contact Techids</SecondaryButton>
         </div>
       </section>

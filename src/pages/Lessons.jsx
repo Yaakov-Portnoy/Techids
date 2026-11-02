@@ -1,50 +1,55 @@
 import React from "react";
-import { PageShell, SectionLabel, PrimaryButton, ArrowLink } from "./PageParts";
+import { PageShell, SectionLabel, PrimaryButton } from "./PageParts";
 
+// Add a real video by setting youtubeId to the video's ID (the part of the
+// URL after "v="). Leave it null and the card shows a "coming soon" state.
 const lessons = [
   {
     number: "01",
     title: "What Is Engineering?",
     topic: "ENGINEERING",
-    description:
-      "Learn how engineers identify problems, create solutions, test ideas, and improve designs.",
+    youtubeId: null,
   },
   {
     number: "02",
     title: "Forces & Motion",
     topic: "PHYSICS",
-    description:
-      "Explore how forces affect objects and discover the physics behind motion.",
+    youtubeId: null,
   },
   {
     number: "03",
     title: "Electricity Basics",
     topic: "ELECTRONICS",
-    description:
-      "Understand circuits, current, energy, and the basic parts that make electronics work.",
+    youtubeId: null,
   },
   {
     number: "04",
-    title: "How Rockets Fly",
-    topic: "AEROSPACE",
-    description:
-      "Explore thrust, gravity, drag, and lift through the science of rockets and flight.",
-  },
-  {
-    number: "05",
     title: "Design Thinking",
     topic: "DESIGN",
-    description:
-      "Practice turning problems into ideas and ideas into testable solutions.",
-  },
-  {
-    number: "06",
-    title: "Introduction to Robotics",
-    topic: "ROBOTICS",
-    description:
-      "Discover how sensors, motors, programming, and mechanical design come together.",
+    youtubeId: null,
   },
 ];
+
+function LessonVideo({ youtubeId, title }) {
+  if (youtubeId) {
+    return (
+      <div className="lesson-video">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="lesson-video lesson-video-placeholder">
+      <span>▶</span>
+      <p>Video coming soon</p>
+    </div>
+  );
+}
 
 function Lessons() {
   return (
@@ -57,36 +62,9 @@ function Lessons() {
           <span>Then try it.</span>
         </h1>
         <p>
-          Educational resources that turn STEM concepts into questions,
-          experiments, projects, and ideas students can explore.
+          Short videos of us teaching real engineering concepts, with hands-on
+          ideas to try yourself.
         </p>
-      </section>
-
-      <section className="lessons-feature section">
-        <div className="lessons-feature-visual">
-          <div className="lesson-diagram">
-            <span>QUESTION</span>
-            <b>→</b>
-            <span>EXPERIMENT</span>
-            <b>→</b>
-            <span>DISCOVER</span>
-          </div>
-        </div>
-
-        <div>
-          <SectionLabel>LEARN BY DOING</SectionLabel>
-          <h2>
-            A lesson should
-            <br />
-            lead somewhere.
-          </h2>
-          <p>
-            Our lesson ideas are designed to give students more than facts.
-            They provide a starting point for exploration and hands-on
-            problem-solving.
-          </p>
-          <PrimaryButton to="/contact">Talk to Techids →</PrimaryButton>
-        </div>
       </section>
 
       <section className="lessons-library section">
@@ -96,25 +74,20 @@ function Lessons() {
             <h2>
               Pick a topic.
               <br />
-              <span>Start exploring.</span>
+              <span>Start watching.</span>
             </h2>
           </div>
-          <p>
-            These are examples of the types of STEM concepts Techids can turn
-            into student-friendly learning experiences.
-          </p>
         </div>
 
         <div className="lesson-grid">
           {lessons.map((lesson) => (
             <article className="lesson-card" key={lesson.number}>
+              <LessonVideo youtubeId={lesson.youtubeId} title={lesson.title} />
               <div className="lesson-card-top">
                 <span>{lesson.number}</span>
                 <SectionLabel>{lesson.topic}</SectionLabel>
               </div>
               <h3>{lesson.title}</h3>
-              <p>{lesson.description}</p>
-              <ArrowLink to="/contact">Learn more</ArrowLink>
             </article>
           ))}
         </div>
@@ -129,8 +102,8 @@ function Lessons() {
             <span>support curiosity.</span>
           </h2>
           <p>
-            Techids can work with teachers and organizations to develop
-            hands-on activities that fit their students, classroom, or event.
+            Techids can work with teachers and organizations to fit these
+            lessons to their classroom or event.
           </p>
           <PrimaryButton to="/contact">Contact Techids →</PrimaryButton>
         </div>
