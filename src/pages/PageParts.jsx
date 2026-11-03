@@ -58,6 +58,9 @@ export function Footer() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Techids, Inc.</span>
         <span>Student-led. Adult-governed.</span>
+        <Link to="/admin/login" className="footer-admin-link">
+          Admin
+        </Link>
       </div>
     </footer>
   );

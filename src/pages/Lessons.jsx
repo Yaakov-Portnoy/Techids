@@ -105,7 +105,7 @@ function Lessons() {
             Techids can work with teachers and organizations to fit these
             lessons to their classroom or event.
           </p>
-          <PrimaryButton to="/contact">Contact Techids →</PrimaryButton>
+          <PrimaryButton to="/workshops">Explore Workshops →</PrimaryButton>
         </div>
       </section>
     </PageShell>
