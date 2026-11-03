@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  PageShell,
-  SectionLabel,
-  PrimaryButton,
-  SecondaryButton,
-} from "./PageParts";
+import { PageShell, SectionLabel, PrimaryButton } from "./PageParts";
 
 function About() {
   return (
@@ -84,7 +79,6 @@ function About() {
         </h2>
         <div className="button-row center">
           <PrimaryButton to="/workshops">Explore Workshops →</PrimaryButton>
-          <SecondaryButton to="/contact">Contact Us</SecondaryButton>
         </div>
       </section>
     </PageShell>

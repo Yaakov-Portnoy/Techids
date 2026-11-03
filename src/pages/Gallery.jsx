@@ -81,7 +81,7 @@ function Gallery() {
           <br />
           experience <span>to students.</span>
         </h2>
-        <PrimaryButton to="/contact">Contact Techids</PrimaryButton>
+        <PrimaryButton to="/workshops">Explore Workshops →</PrimaryButton>
       </section>
     </PageShell>
   );
