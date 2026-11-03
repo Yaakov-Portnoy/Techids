@@ -17,81 +17,9 @@ function About() {
           <span>something you do.</span>
         </h1>
         <p>
-          Techids is a student-led nonprofit making STEM hands-on and
-          accessible for kids.
+          Techids is a student-led nonprofit, built by students for
+          students, making STEM hands-on and accessible for kids.
         </p>
-      </section>
-
-      <section className="about-story section">
-        <div className="story-side">
-          <span>01</span>
-          <SectionLabel>WHO WE ARE</SectionLabel>
-        </div>
-
-        <div className="story-content">
-          <h2>
-            Built by students
-            <br />
-            <span>for students.</span>
-          </h2>
-          <p>
-            STEM is more exciting when you get to experience it yourself.
-            Our student leaders build workshops, projects, and lessons that
-            encourage younger students to ask questions and build things of
-            their own.
-          </p>
-          <p>
-            We're growing from local hands-on programs into a broader
-            STEM-learning network for schools, families, and students.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-values">
-        <div className="section values-inner">
-          <div>
-            <SectionLabel>WHAT WE BELIEVE</SectionLabel>
-            <h2>
-              Curiosity is
-              <br />
-              <span>the beginning.</span>
-            </h2>
-          </div>
-
-          <div className="values-list">
-            <article>
-              <span>01</span>
-              <div>
-                <h3>Hands-on first</h3>
-                <p>Students learn best by experimenting and building.</p>
-              </div>
-            </article>
-
-            <article>
-              <span>02</span>
-              <div>
-                <h3>Accessible STEM</h3>
-                <p>STEM should feel welcoming, not intimidating.</p>
-              </div>
-            </article>
-
-            <article>
-              <span>03</span>
-              <div>
-                <h3>Student leadership</h3>
-                <p>Students creating meaningful opportunities for students.</p>
-              </div>
-            </article>
-
-            <article>
-              <span>04</span>
-              <div>
-                <h3>Keep improving</h3>
-                <p>Great engineering and learning both come from trying again.</p>
-              </div>
-            </article>
-          </div>
-        </div>
       </section>
 
       <section className="about-team section">
@@ -145,25 +73,6 @@ function About() {
           guardians of legal age, and follows a formal set of bylaws that
           govern how the organization is run.
         </p>
-      </section>
-
-      <section className="about-purpose section">
-        <div className="purpose-number">02</div>
-        <div className="purpose-content">
-          <SectionLabel>OUR PURPOSE</SectionLabel>
-          <h2>
-            Give the next
-            <br />
-            generation a chance
-            <br />
-            to <span>build.</span>
-          </h2>
-          <p>
-            Techids, Inc. is organized for charitable and educational
-            purposes: hands-on STEM programs, workshops, mentoring,
-            curriculum, equipment, and community partnerships.
-          </p>
-        </div>
       </section>
 
       <section className="about-cta">
