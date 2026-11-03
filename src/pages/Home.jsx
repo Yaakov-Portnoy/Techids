@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   PageShell,
   SectionLabel,
@@ -67,23 +66,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="home-intro section">
-        <div className="home-intro-number">01</div>
-        <div>
-          <SectionLabel>WHY TECHIDS?</SectionLabel>
-          <h2>
-            STEM should feel
-            <br />
-            <span>possible.</span>
-          </h2>
-          <p className="large-copy">
-            Kids learn best by turning an idea into something real. Techids
-            gives them the chance to build, experiment, and discover what
-            they can do.
-          </p>
-        </div>
-      </section>
-
       <section className="home-programs section">
         <div className="section-heading-row">
           <div>
@@ -126,41 +108,6 @@ function Home() {
               <ArrowLink to="/contact#involved">Get involved</ArrowLink>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section className="home-feature section">
-        <div className="feature-image feature-image-workshop">
-          <div className="image-overlay-label">HANDS-ON LEARNING</div>
-        </div>
-
-        <div className="feature-copy">
-          <SectionLabel>THE TECHIDS APPROACH</SectionLabel>
-          <h2>
-            Don't just
-            <br />
-            <span>watch.</span>
-          </h2>
-          <p>
-            Students get a challenge, build a solution, test it, and improve
-            it — the same process real engineers use.
-          </p>
-          <PrimaryButton to="/workshops">See Our Workshops →</PrimaryButton>
-        </div>
-      </section>
-
-      <section className="home-stats">
-        <div>
-          <strong>STEM</strong>
-          <span>Science · Technology · Engineering · Mathematics</span>
-        </div>
-        <div>
-          <strong>BUILD</strong>
-          <span>Learn through projects and experimentation</span>
-        </div>
-        <div>
-          <strong>GROW</strong>
-          <span>Give students confidence to keep exploring</span>
         </div>
       </section>
 
