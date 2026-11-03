@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { PageShell, SectionLabel, PrimaryButton, ArrowLink } from "./PageParts";
+import SlideViewer from "../SlideViewer";
 
 const bridgeLevels = [
   {
@@ -9,8 +10,7 @@ const bridgeLevels = [
     duration: "15 minutes",
     description:
       "Teams build a LEGO bridge that spans a 10–12 inch gap, then test how much weight it can hold. Covers why we build bridges and what makes a design strong.",
-    fileHref: "/workshops/bridge-building-elementary.pdf",
-    fileLabel: "View the presentation (PDF)",
+    deckSrc: "/workshops/bridge-building-elementary.pdf",
   },
   {
     grade: "MIDDLE SCHOOL",
@@ -18,14 +18,15 @@ const bridgeLevels = [
     duration: "25 minutes",
     description:
       "Teams design and build a craft-stick bridge on a limited materials budget, using triangles and trusses to resist bending, then run an official load test. Covers compression, tension, and the engineering design cycle.",
-    fileHref: "/workshops/bridge-building-middle-school.pptx",
-    fileLabel: "View the presentation (PowerPoint)",
+    deckSrc: "/workshops/bridge-building-middle-school.pdf",
   },
 ];
 
 const comingSoon = ["Robotics", "Physics", "Electronics", "Design"];
 
 function Workshops() {
+  const [openDeck, setOpenDeck] = useState(null);
+
   return (
     <PageShell className="workshops-page">
       <section className="workshops-hero">
@@ -81,9 +82,13 @@ function Workshops() {
                 <h4>{level.title}</h4>
                 <p className="workshop-level-duration">{level.duration}</p>
                 <p>{level.description}</p>
-                <a href={level.fileHref} target="_blank" rel="noreferrer" className="arrow-link">
-                  {level.fileLabel} <span>→</span>
-                </a>
+                <button
+                  type="button"
+                  className="arrow-link slide-viewer-trigger"
+                  onClick={() => setOpenDeck(level)}
+                >
+                  View the slides <span>→</span>
+                </button>
               </div>
             ))}
           </div>
@@ -112,6 +117,14 @@ function Workshops() {
           Request a Workshop →
         </Link>
       </section>
+
+      {openDeck && (
+        <SlideViewer
+          src={openDeck.deckSrc}
+          title={`Bridge Building & Engineering — ${openDeck.grade}`}
+          onClose={() => setOpenDeck(null)}
+        />
+      )}
     </PageShell>
   );
 }
