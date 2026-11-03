@@ -121,7 +121,6 @@ function Home() {
         <p>Students, teachers, and schools — there's a way to get involved.</p>
         <div className="button-row center">
           <PrimaryButton to="/contact#involved">Get Involved →</PrimaryButton>
-          <SecondaryButton to="/contact">Contact Techids</SecondaryButton>
         </div>
       </section>
     </PageShell>
