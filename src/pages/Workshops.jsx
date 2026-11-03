@@ -1,69 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  PageShell,
-  SectionLabel,
-  PrimaryButton,
-  SecondaryButton,
-  ArrowLink,
-} from "./PageParts";
+import { PageShell, SectionLabel, PrimaryButton, ArrowLink } from "./PageParts";
 
-const workshops = [
+const bridgeLevels = [
   {
-    number: "01",
-    title: "Bridge Builders",
-    category: "ENGINEERING",
+    grade: "ELEMENTARY",
+    title: "LEGO Bridge Build",
+    duration: "15 minutes",
     description:
-      "Design and build a bridge while exploring forces, structures, balance, and materials.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+      "Teams build a LEGO bridge that spans a 10–12 inch gap, then test how much weight it can hold. Covers why we build bridges and what makes a design strong.",
+    fileHref: "/workshops/bridge-building-elementary.pdf",
+    fileLabel: "View the presentation (PDF)",
   },
   {
-    number: "02",
-    title: "Robotics Challenge",
-    category: "ROBOTICS",
+    grade: "MIDDLE SCHOOL",
+    title: "Craft-Stick Bridge Build",
+    duration: "25 minutes",
     description:
-      "Design, build, test, and improve a machine that solves a hands-on challenge.",
-    image:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    number: "03",
-    title: "Forces in Action",
-    category: "PHYSICS",
-    description:
-      "Explore force, motion, energy, and gravity through experiments students can experience.",
-    image:
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    number: "04",
-    title: "Build a Circuit",
-    category: "ELECTRONICS",
-    description:
-      "Learn how electricity works by designing and testing a simple working circuit.",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    number: "05",
-    title: "Rocket Science",
-    category: "AEROSPACE",
-    description:
-      "Explore propulsion, aerodynamics, forces, and motion while designing a rocket.",
-    image:
-      "https://images.unsplash.com/photo-1517976547714-720226b864c1?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    number: "06",
-    title: "Engineering Challenge",
-    category: "DESIGN",
-    description:
-      "Work as a team to solve a real-world engineering problem and improve your design.",
-    image:
-      "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
+      "Teams design and build a craft-stick bridge on a limited materials budget, using triangles and trusses to resist bending, then run an official load test. Covers compression, tension, and the engineering design cycle.",
+    fileHref: "/workshops/bridge-building-middle-school.pptx",
+    fileLabel: "View the presentation (PowerPoint)",
   },
 ];
+
+const comingSoon = ["Robotics", "Physics", "Electronics", "Design"];
 
 function Workshops() {
   return (
@@ -79,45 +39,19 @@ function Workshops() {
           </h1>
 
           <p>
-            Hands-on STEM experiences designed by students, for students. We
-            bring science, engineering, technology, and problem-solving to life
-            through projects students can actually build.
+            Hands-on STEM experiences designed by students, for students.
           </p>
 
           <div className="button-row">
             <PrimaryButton to="/contact#workshop">Request a Workshop →</PrimaryButton>
-            <SecondaryButton to="#workshop-list">
-              Explore Workshops
-            </SecondaryButton>
           </div>
         </div>
 
         <div className="workshops-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1800&q=85"
-            alt="Students working together on a STEM project"
+            src="/gallery/bridge-workshop-1.jpg"
+            alt="Techids students building a bridge together at a workshop"
           />
-        </div>
-      </section>
-
-      <section className="workshops-why">
-        <div className="section">
-          <div className="workshops-why-number">01</div>
-          <div className="workshops-why-copy">
-            <SectionLabel>WHY HANDS-ON?</SectionLabel>
-            <h2>
-              The best way to
-              <br />
-              understand STEM is to
-              <br />
-              <span>experience it.</span>
-            </h2>
-            <p>
-              A Techids workshop isn't a lecture. Students receive a challenge,
-              explore the science behind it, build something, test it, figure
-              out what went wrong, and try again.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -131,131 +65,39 @@ function Workshops() {
               <span>building.</span>
             </h2>
           </div>
+        </div>
+
+        <article className="workshop-feature">
+          <SectionLabel>ENGINEERING</SectionLabel>
+          <h3>Bridge Building &amp; Engineering</h3>
           <p>
-            Every experience combines science, engineering, creativity, and
-            teamwork.
+            Available in two versions, matched to the group's grade level.
           </p>
-        </div>
 
-        <div className="workshops-grid">
-          {workshops.map((workshop) => (
-            <article className="workshop-card" key={workshop.number}>
-              <div className="workshop-card-image">
-                <img src={workshop.image} alt={workshop.title} />
-                <span>{workshop.number}</span>
+          <div className="workshop-levels">
+            {bridgeLevels.map((level) => (
+              <div className="workshop-level-card" key={level.grade}>
+                <span className="workshop-level-grade">{level.grade}</span>
+                <h4>{level.title}</h4>
+                <p className="workshop-level-duration">{level.duration}</p>
+                <p>{level.description}</p>
+                <a href={level.fileHref} target="_blank" rel="noreferrer" className="arrow-link">
+                  {level.fileLabel} <span>→</span>
+                </a>
               </div>
+            ))}
+          </div>
 
-              <div className="workshop-card-content">
-                <SectionLabel>{workshop.category}</SectionLabel>
-                <h3>{workshop.title}</h3>
-                <p>{workshop.description}</p>
-                <ArrowLink to="/contact#workshop">Ask about this workshop</ArrowLink>
-              </div>
-            </article>
+          <ArrowLink to="/contact#workshop">Ask about this workshop</ArrowLink>
+        </article>
+
+        <div className="coming-soon-row">
+          {comingSoon.map((name) => (
+            <div className="coming-soon-tile" key={name}>
+              <span>{name}</span>
+              <p>Coming soon</p>
+            </div>
           ))}
-        </div>
-      </section>
-
-      <section className="workshops-process">
-        <div className="section">
-          <SectionLabel>THE TECHIDS METHOD</SectionLabel>
-
-          <h2>
-            Discover.
-            <br />
-            Build.
-            <br />
-            Test.
-            <br />
-            <span>Improve.</span>
-          </h2>
-
-          <div className="process-grid">
-            <div>
-              <span>01</span>
-              <h3>Discover</h3>
-              <p>Understand the challenge and explore the science behind it.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <h3>Build</h3>
-              <p>Turn an idea into something real using materials and creativity.</p>
-            </div>
-            <div>
-              <span>03</span>
-              <h3>Test</h3>
-              <p>Put the design to work and learn from the results.</p>
-            </div>
-            <div>
-              <span>04</span>
-              <h3>Improve</h3>
-              <p>Make changes, try again, and build something better.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="workshops-school section">
-        <div className="school-card">
-          <div className="school-card-copy">
-            <SectionLabel>FOR SCHOOLS</SectionLabel>
-            <h2>
-              Bring Techids
-              <br />
-              <span>to your school.</span>
-            </h2>
-            <p>
-              We work with schools, teachers, and community organizations to
-              bring hands-on STEM experiences directly to students.
-            </p>
-            <PrimaryButton to="/contact#workshop">Request a Workshop →</PrimaryButton>
-          </div>
-
-          <div className="school-card-visual">
-            <div className="school-visual-circle">STEM</div>
-          </div>
-        </div>
-      </section>
-
-      <section className="workshops-faq section">
-        <SectionLabel>FAQ</SectionLabel>
-        <h2>
-          Questions?
-          <br />
-          <span>We've got answers.</span>
-        </h2>
-
-        <div className="faq-grid">
-          <article>
-            <h3>Who are the workshops for?</h3>
-            <p>
-              Our workshops are designed primarily for younger students and
-              can be adapted for different ages and experience levels.
-            </p>
-          </article>
-
-          <article>
-            <h3>How long is a workshop?</h3>
-            <p>
-              Most workshops can be completed in approximately 60–90 minutes,
-              depending on the project and group.
-            </p>
-          </article>
-
-          <article>
-            <h3>Do students need STEM experience?</h3>
-            <p>
-              No. Students do not need previous STEM experience to participate.
-            </p>
-          </article>
-
-          <article>
-            <h3>Can a school request one?</h3>
-            <p>
-              Yes. Use our contact page to tell us about your school,
-              organization, group, or event.
-            </p>
-          </article>
         </div>
       </section>
 
@@ -266,8 +108,7 @@ function Workshops() {
           <br />
           <span>hands-on.</span>
         </h2>
-        <p>Tell us what you're looking for and we'll start the conversation.</p>
-          <Link to="/contact#workshop" className="button button-white">
+        <Link to="/contact#workshop" className="button button-white">
           Request a Workshop →
         </Link>
       </section>
