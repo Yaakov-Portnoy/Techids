@@ -1024,6 +1024,11 @@
   margin-bottom: 28px;
 }
 
+.workshop-level-card-full {
+  grid-column: 1 / -1;
+  max-width: 480px;
+}
+
 .workshop-level-card {
   background: var(--background);
   border: 1px solid var(--border);

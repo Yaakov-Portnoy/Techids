@@ -3,29 +3,52 @@ import { Link } from "react-router-dom";
 import { PageShell, SectionLabel, PrimaryButton, ArrowLink } from "./PageParts";
 import SlideViewer from "../SlideViewer";
 
-const bridgeLevels = [
+const workshops = [
   {
-    grade: "ELEMENTARY",
-    title: "LEGO Bridge Build",
-    duration: "15 minutes",
-    description:
-      "Teams build a LEGO bridge that spans a 10–12 inch gap, then test how much weight it can hold. Covers why we build bridges and what makes a design strong.",
-    deckSrc: "/workshops/bridge-building-elementary.pdf",
+    category: "ENGINEERING",
+    name: "Bridge Building & Engineering",
+    summary: "Available in two versions, matched to the group's grade level.",
+    levels: [
+      {
+        grade: "ELEMENTARY",
+        title: "LEGO Bridge Build",
+        duration: "15 minutes",
+        description:
+          "Teams build a LEGO bridge that spans a 10–12 inch gap, then test how much weight it can hold. Covers why we build bridges and what makes a design strong.",
+        deckSrc: "/workshops/bridge-building-elementary.pdf",
+      },
+      {
+        grade: "MIDDLE SCHOOL",
+        title: "Craft-Stick Bridge Build",
+        duration: "25 minutes",
+        description:
+          "Teams design and build a craft-stick bridge on a limited materials budget, using triangles and trusses to resist bending, then run an official load test. Covers compression, tension, and the engineering design cycle.",
+        deckSrc: "/workshops/bridge-building-middle-school.pdf",
+      },
+    ],
   },
   {
-    grade: "MIDDLE SCHOOL",
-    title: "Craft-Stick Bridge Build",
-    duration: "25 minutes",
-    description:
-      "Teams design and build a craft-stick bridge on a limited materials budget, using triangles and trusses to resist bending, then run an official load test. Covers compression, tension, and the engineering design cycle.",
-    deckSrc: "/workshops/bridge-building-middle-school.pdf",
+    category: "PHYSICS",
+    name: "Water Wheel & Simple Machines",
+    summary: "A fast, hands-on team build around energy transfer.",
+    levels: [
+      {
+        grade: "TEAM CHALLENGE",
+        title: "Build a Water Wheel",
+        duration: "15 minutes",
+        description:
+          "Teams build a water wheel from cardboard, straws, and a dowel axle, then pour water over it to see how much weight it can lift on a string — heaviest lift wins. Covers energy transfer and the wheel-and-axle simple machine.",
+        deckSrc: "/workshops/water-wheel.pdf",
+      },
+    ],
   },
 ];
 
-const comingSoon = ["Robotics", "Physics", "Electronics", "Design"];
+const comingSoon = ["Robotics", "Electronics", "Design"];
 
 function Workshops() {
   const [openDeck, setOpenDeck] = useState(null);
+  const [openWorkshopName, setOpenWorkshopName] = useState("");
 
   return (
     <PageShell className="workshops-page">
@@ -68,33 +91,39 @@ function Workshops() {
           </div>
         </div>
 
-        <article className="workshop-feature">
-          <SectionLabel>ENGINEERING</SectionLabel>
-          <h3>Bridge Building &amp; Engineering</h3>
-          <p>
-            Available in two versions, matched to the group's grade level.
-          </p>
+        {workshops.map((workshop) => (
+          <article className="workshop-feature" key={workshop.name}>
+            <SectionLabel>{workshop.category}</SectionLabel>
+            <h3>{workshop.name}</h3>
+            <p>{workshop.summary}</p>
 
-          <div className="workshop-levels">
-            {bridgeLevels.map((level) => (
-              <div className="workshop-level-card" key={level.grade}>
-                <span className="workshop-level-grade">{level.grade}</span>
-                <h4>{level.title}</h4>
-                <p className="workshop-level-duration">{level.duration}</p>
-                <p>{level.description}</p>
-                <button
-                  type="button"
-                  className="arrow-link slide-viewer-trigger"
-                  onClick={() => setOpenDeck(level)}
+            <div className="workshop-levels">
+              {workshop.levels.map((level) => (
+                <div
+                  className={`workshop-level-card ${workshop.levels.length === 1 ? "workshop-level-card-full" : ""}`}
+                  key={level.grade}
                 >
-                  View the slides <span>→</span>
-                </button>
-              </div>
-            ))}
-          </div>
+                  <span className="workshop-level-grade">{level.grade}</span>
+                  <h4>{level.title}</h4>
+                  <p className="workshop-level-duration">{level.duration}</p>
+                  <p>{level.description}</p>
+                  <button
+                    type="button"
+                    className="arrow-link slide-viewer-trigger"
+                    onClick={() => {
+                      setOpenDeck(level);
+                      setOpenWorkshopName(workshop.name);
+                    }}
+                  >
+                    View the slides <span>→</span>
+                  </button>
+                </div>
+              ))}
+            </div>
 
-          <ArrowLink to="/contact#workshop">Ask about this workshop</ArrowLink>
-        </article>
+            <ArrowLink to="/contact#workshop">Ask about this workshop</ArrowLink>
+          </article>
+        ))}
 
         <div className="coming-soon-row">
           {comingSoon.map((name) => (
@@ -121,7 +150,7 @@ function Workshops() {
       {openDeck && (
         <SlideViewer
           src={openDeck.deckSrc}
-          title={`Bridge Building & Engineering — ${openDeck.grade}`}
+          title={`${openWorkshopName} — ${openDeck.grade}`}
           onClose={() => setOpenDeck(null)}
         />
       )}
