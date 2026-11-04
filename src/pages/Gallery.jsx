@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { PageShell, SectionLabel, PrimaryButton } from "./PageParts";
+import Lightbox from "../Lightbox";
 
 const galleryItems = [
   {
@@ -45,6 +46,8 @@ const galleryItems = [
 ];
 
 function Gallery() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <PageShell className="gallery-page">
       <section className="inner-hero gallery-hero">
@@ -63,6 +66,12 @@ function Gallery() {
             <article
               className={`gallery-card ${index === 0 ? "gallery-card-large" : ""}`}
               key={item.image}
+              onClick={() => setActiveIndex(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") setActiveIndex(index);
+              }}
             >
               <img src={item.image} alt={item.title} loading="lazy" />
               <div className="gallery-card-overlay">
@@ -73,6 +82,15 @@ function Gallery() {
           ))}
         </div>
       </section>
+
+      {activeIndex !== null && (
+        <Lightbox
+          items={galleryItems}
+          index={activeIndex}
+          onClose={() => setActiveIndex(null)}
+          onNavigate={setActiveIndex}
+        />
+      )}
 
       <section className="gallery-cta">
         <SectionLabel>WANT TO BE PART OF IT?</SectionLabel>
