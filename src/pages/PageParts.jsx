@@ -16,6 +16,7 @@ export function Header() {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/workshops">Workshops</NavLink>
           <NavLink to="/lessons">Lessons</NavLink>
+          <NavLink to="/kits">Kits</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
         </nav>
 
@@ -46,12 +47,14 @@ export function Footer() {
           <Link to="/about">About</Link>
           <Link to="/workshops">Workshops</Link>
           <Link to="/lessons">Lessons</Link>
+          <Link to="/kits">Kits</Link>
           <Link to="/gallery">Gallery</Link>
         </div>
 
         <div className="footer-column">
           <h3>Connect</h3>
           <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
         </div>
       </div>
 

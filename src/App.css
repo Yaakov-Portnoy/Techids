@@ -626,7 +626,8 @@
 .home-cta,
 .about-cta,
 .involved-cta,
-.gallery-cta {
+.gallery-cta,
+.kits-cta {
   text-align: center;
   padding: 120px 5%;
 }
@@ -634,7 +635,8 @@
 .home-cta h2,
 .about-cta h2,
 .involved-cta h2,
-.gallery-cta h2 {
+.gallery-cta h2,
+.kits-cta h2 {
   margin: 25px 0;
   font-size: clamp(50px, 7vw, 90px);
   line-height: 0.94;
@@ -645,13 +647,15 @@
 .home-cta h2 span,
 .about-cta h2 span,
 .involved-cta h2 span,
-.gallery-cta h2 span {
+.gallery-cta h2 span,
+.kits-cta h2 span {
   color: var(--blue);
 }
 
 .home-cta p,
 .involved-cta p,
-.gallery-cta p {
+.gallery-cta p,
+.kits-cta p {
   max-width: 680px;
   margin: 0 auto 35px;
   color: var(--muted);
@@ -1250,6 +1254,63 @@
 
 .lightbox-arrow-right {
   right: 24px;
+}
+
+.kits-intro {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 18px 0 0;
+}
+
+.kits-grid {
+  margin-top: 30px;
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  padding-bottom: 120px;
+}
+
+.faq-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--navy);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "+";
+  display: inline-block;
+  width: 22px;
+  color: var(--blue);
+  font-weight: 850;
+}
+
+.faq-item[open] summary::before {
+  content: "−";
+}
+
+.faq-item p {
+  margin: 14px 0 0 22px;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .workshops-process {

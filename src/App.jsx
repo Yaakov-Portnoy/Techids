@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Workshops from "./pages/Workshops";
 import Lessons from "./pages/Lessons";
+import Kits from "./pages/Kits";
+import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
@@ -21,6 +23,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/lessons" element={<Lessons />} />
+        <Route path="/kits" element={<Kits />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         {/* Get Involved and Request a Workshop were folded into the single
             Contact page; these keep old links working. */}
