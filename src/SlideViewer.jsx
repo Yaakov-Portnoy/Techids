@@ -12,6 +12,7 @@ export default function SlideViewer({ src, title, onClose }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   const [error, setError] = useState("");
+  const [resizeTick, setResizeTick] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -37,17 +38,43 @@ export default function SlideViewer({ src, title, onClose }) {
       if (cancelled) return;
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
+      const container = canvas.parentElement;
+      const availableWidth = container.clientWidth || 900;
+      const availableHeight = container.clientHeight || 600;
       const viewport = page.getViewport({ scale: 1 });
-      const scale = Math.min((canvas.parentElement.clientWidth || 900) / viewport.width, 1.6);
+      // Fit the whole slide inside the available space — width AND height —
+      // so it never needs to be scrolled to be seen in full.
+      const scale = Math.min(availableWidth / viewport.width, availableHeight / viewport.height);
       const scaledViewport = page.getViewport({ scale });
-      canvas.width = scaledViewport.width;
-      canvas.height = scaledViewport.height;
-      page.render({ canvasContext: context, viewport: scaledViewport });
+
+      // Render at the screen's real pixel density so text stays sharp, then
+      // scale back down to the fitted size with CSS.
+      const outputScale = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(scaledViewport.width * outputScale);
+      canvas.height = Math.floor(scaledViewport.height * outputScale);
+      canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
+      canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
+
+      page.render({
+        canvasContext: context,
+        viewport: scaledViewport,
+        transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined,
+      });
     });
     return () => {
       cancelled = true;
     };
-  }, [pageNumber, pageCount]);
+  }, [pageNumber, pageCount, resizeTick]);
+
+  // Re-fit the slide if the window (or the modal itself) changes size —
+  // otherwise a slide rendered for one window size overflows after a resize.
+  useEffect(() => {
+    const wrap = canvasRef.current?.parentElement;
+    if (!wrap || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => setResizeTick((n) => n + 1));
+    observer.observe(wrap);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     function handleKey(event) {

@@ -28,14 +28,15 @@ Prerequisite: Node.js 22.5 or newer (the server uses Node's built-in SQLite modu
    npm --prefix server run create-admin -- admin@example.org use-a-strong-password-of-at-least-12-characters
    ```
 
-5. In separate terminals, start the API and web app:
+5. Start both the API and web app together:
 
    ```bash
-   npm run server
-   npm run dev
+   npm run dev:all
    ```
 
-The frontend runs at `http://localhost:5173`; the API runs at `http://localhost:5001`. Sign in at `/admin/login`.
+   (Or run `npm run server` and `npm run dev` in two separate terminals if you prefer.) **Both must be running** — if only the web app is running, admin login and every form on the site will fail with "Failed to fetch" because there's nothing listening on the API port.
+
+The frontend runs at `http://localhost:5173` (Vite picks a different port if that one's busy — check the terminal output). The API runs at `http://localhost:5001`. Sign in at `/admin/login`.
 
 ## Submission flow
 
