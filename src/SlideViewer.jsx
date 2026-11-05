@@ -9,6 +9,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 export default function SlideViewer({ src, title, onClose }) {
   const canvasRef = useRef(null);
   const pdfRef = useRef(null);
+  const renderTaskRef = useRef(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   const [error, setError] = useState("");
@@ -55,11 +56,20 @@ export default function SlideViewer({ src, title, onClose }) {
       canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
       canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
 
-      page.render({
+      // The resize observer below can fire its initial callback around the
+      // same time this effect's first render kicks off (e.g. right after the
+      // deck loads), starting a second render on the same canvas before the
+      // first finishes. Two renders racing on one canvas corrupt its
+      // transform state — the classic symptom is the first slide briefly
+      // appearing upside down. Cancel any render still in flight first.
+      renderTaskRef.current?.cancel();
+      const task = page.render({
         canvasContext: context,
         viewport: scaledViewport,
         transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined,
       });
+      renderTaskRef.current = task;
+      task.promise.catch(() => {});
     });
     return () => {
       cancelled = true;
